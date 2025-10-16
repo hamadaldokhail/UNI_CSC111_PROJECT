@@ -63,6 +63,7 @@ public class User {
 		int Books_borrowed = 0;
 		int Books_returned = 0;
 
+		//this loop is for the menu and its cases
 		do {
 
 			System.out.println("");
@@ -78,6 +79,7 @@ public class User {
 			int User_action = input.nextInt();
 			switch (User_action) {
 
+			// First case, borrowing books
 			case 1:
 				if (Books_borrowed < 5) {
 					System.out.println("");
@@ -107,7 +109,9 @@ public class User {
 					System.out.println("---------------------");
 				}
 				break;
+				
 
+			// Second case, returning books	
 			case 2:
 				if (Books_borrowed > 0) {
 					System.out.println("");
@@ -140,6 +144,7 @@ public class User {
 
 				break;
 
+			// Third case, display borrowed books
 			case 3:
 				System.out.println("");
 				System.out.println("The number of books borrowed in this seesion: " + Books_borrowed);
@@ -147,6 +152,7 @@ public class User {
 
 				break;
 
+			// Forth case, Session summary
 			case 4:
 				System.out.println("");
 				System.out.println("Session Summary:");
@@ -158,6 +164,7 @@ public class User {
 				System.out.println("----------------");
 				break;
 
+			// Fifth case, Exit to main menu
 			case 5:
 				System.out.println("");
 				System.out.println("You are going to Exit this session");
