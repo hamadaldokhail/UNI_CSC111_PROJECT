@@ -24,7 +24,7 @@ public class User {
 
 		int Total_books_returned = 0;
 
-		float Total_revnue = 0f;
+		float Total_revenue = 0f;
 
 		// this variable is used to stop the do while loop if the entered name is valid
 		int Valid_name = 0;
@@ -89,7 +89,7 @@ public class User {
 					if (User_answer.equalsIgnoreCase("yes") || User_answer.equalsIgnoreCase("y")) {
 						// updating variables
 						Fees_per_session += 0.50f;
-						Total_revnue += 0.50f;
+						Total_revenue += 0.50f;
 						Books_borrowed += 1;
 						Total_books_borrowed += 1;
 
@@ -104,7 +104,7 @@ public class User {
 				} else {
 					System.out.println("");
 					System.out.println("Oops, it seems that you have borrowed 5 books, which is the limit.");
-					System.out.println("Unfortunatly you cant borrow more than 5,,,");
+					System.out.println("Unfortunatly, you cant borrow more than 5,,,");
 					System.out.println("Therefore you will be returned to the main user menu.");
 					System.out.println("---------------------");
 				}
@@ -126,7 +126,7 @@ public class User {
 						Books_returned += 1;
 
 						System.out.println("");
-						System.out.println("You have returned on book successfully!");
+						System.out.println("You have returned one book successfully!");
 						System.out.println("---------------------");
 					} else {
 						System.out.println("");
@@ -152,7 +152,7 @@ public class User {
 
 				break;
 
-			// Forth case, Session summary
+			// Fourth case, Session summary
 			case 4:
 				System.out.println("");
 				System.out.println("Session Summary:");
