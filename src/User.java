@@ -13,7 +13,7 @@ public class User {
 		String Second_name = "Yassir";
 		
 		int Third_id = 1002;
-		String Third_name = "Khalid";
+		String Third_name = "Khaled";
 		
 		//setting total calculations
 		
@@ -30,9 +30,13 @@ public class User {
 		do {
 			
 			System.out.println("We have three registered accounts accounts: ");
-			System.out.println(First_name + ", ID#" + First_id);
-			System.out.println(Second_name + ", ID#" + Second_id);
-			System.out.println(Third_name + ", ID#" + Third_id);
+			System.out.println("");
+			System.out.println("Username ID");
+			System.out.println("----------------");
+			System.out.println(First_name + "\t ID#" + First_id);
+			System.out.println(Second_name + "\t ID#" + Second_id);
+			System.out.println(Third_name + "\t ID#" + Third_id);
+			System.out.println("");
 			System.out.print("Which one is yours, please enter the username only: ");
 			String Username = input.next();
 			if (Username.equalsIgnoreCase(First_name) || Username.equalsIgnoreCase(Second_name) || Username.equalsIgnoreCase(Third_name)) {
@@ -56,19 +60,18 @@ public class User {
 			System.out.println("");
 			System.out.println("THE MENU:");
 			System.out.println("");
-			System.out.println("Borrow Book");
-			System.out.println("Return Book");
-			System.out.println("View Borrowed Books");
-			System.out.println("View Session Summary");
-			System.out.println("Exit to Main Menu");
+			System.out.println("1.Borrow Book");
+			System.out.println("2.Return Book");
+			System.out.println("3.View Borrowed Books");
+			System.out.println("4.View Session Summary");
+			System.out.println("5.Exit to Main Menu");
 			System.out.println("");
-			System.out.print("How Can I help You:");
+			System.out.print("How Can I help You (please enter a number): ");
 			input.nextLine(); //this is for consuming the line before so we can give input to the program
-			String User_action = input.nextLine().trim().toLowerCase();
+			int User_action = input.nextInt();
 			switch (User_action) {
 			
-			case "borrow":
-			case "borrow book":
+			case 1:
 				System.out.println("Borrowing a book has a 0.50$ fee for any book in the library you choose.");
 				System.out.print("Are you sure you want to borrow a book (answer \"yes\" or \"no\" please)");
 				String User_answer = input.next();
@@ -86,16 +89,16 @@ public class User {
 				}
 				break;
 				
-			case "return book":
+			case 2:
 				break;
 				
-			case "view borrowed books":
+			case 3:
 				break;
 			
-			case "view session summary":
+			case 4:
 				break;
 			
-			case "exit to main menu":
+			case 5:
 				break;
 				
 			default:
