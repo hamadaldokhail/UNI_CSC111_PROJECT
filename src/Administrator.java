@@ -25,7 +25,8 @@ public class Administrator {
 					System.out.println("1. View Total Revenue");
 					System.out.println("2. Most Frequent Operation");
 					System.out.println("3. Exit to Main Menu");
-					System.out.print("\nEnter your Choice: ");
+					System.out.println("\nNote: You must Enter a Number!");
+					System.out.print("Enter your Choice: ");
 					choice = input.nextInt();
 
 					switch (choice) {
@@ -62,6 +63,3 @@ public class Administrator {
 		while (!username.equalsIgnoreCase("exit")
 				&& (!username.equalsIgnoreCase("admin") || !password.equals("admin")));
 
-		System.out.print("\nyour have exit from my loops");
-	}
-}
