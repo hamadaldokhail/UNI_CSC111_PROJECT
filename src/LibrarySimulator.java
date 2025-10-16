@@ -218,10 +218,7 @@ public class LibrarySimulator {
 					System.out.print("Enter passowrd: ");
 					password = input.next();
 
-					if (username.equalsIgnoreCase("admin") && password.equals("admin")) {
-						total_revenue = 1.5f;
-						total_books_borrowed = 8;
-						total_books_returned = 8;
+					if (username.equalsIgnoreCase("admin") && password.equals("admin")) 
 						do {
 							System.out.println("\n--- Administrator Menu ---\n");
 							System.out.println("1. View Total Revenue");
@@ -277,3 +274,4 @@ public class LibrarySimulator {
 	}// main end
 
 }
+
