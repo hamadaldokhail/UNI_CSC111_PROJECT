@@ -8,26 +8,26 @@ public class User {
 
 		// setting user names and accounts
 
-		int First_id = 1000;
-		String First_name = "Hamad";
+		int firstId = 1000;
+		String firstName = "Hamad";
 
-		int Second_id = 1001;
-		String Second_name = "Yassir";
+		int secondId = 1001;
+		String secondName = "Yassir";
 
-		int Third_id = 1002;
-		String Third_name = "Khaled";
+		int thirdId = 1002;
+		String thirdName = "Khaled";
 
 		// setting total calculations
 		// Attention! these variables are used by admin
 
-		int Total_books_borrowed = 0;
+		int totalBooksBorrowed = 0;
 
-		int Total_books_returned = 0;
+		int totalBooksReturned = 0;
 
-		float Total_revenue = 0f;
+		float totalRevenue = 0f;
 
 		// this variable is used to stop the do while loop if the entered name is valid
-		int Valid_name = 0;
+		int validName = 0;
 
 		// The login part for the user
 		do {
@@ -36,34 +36,37 @@ public class User {
 			System.out.println("");
 			System.out.println("Username ID");
 			System.out.println("----------------");
-			System.out.println(First_name + "\t ID#" + First_id);
-			System.out.println(Second_name + "\t ID#" + Second_id);
-			System.out.println(Third_name + "\t ID#" + Third_id);
+			System.out.println(firstName + "\t ID#" + firstId);
+			System.out.println(secondName + "\t ID#" + secondId);
+			System.out.println(thirdName + "\t ID#" + thirdId);
 			System.out.println("");
 			System.out.print("Choose one of the available accounts, please enter the username only: ");
-			String Username = input.next();
-			if (Username.equalsIgnoreCase(First_name) || Username.equalsIgnoreCase(Second_name)
-					|| Username.equalsIgnoreCase(Third_name)) {
+			String userName = input.next();
+			if (userName.equalsIgnoreCase(firstName) || userName.equalsIgnoreCase(secondName)
+					|| userName.equalsIgnoreCase(thirdName)) {
 				System.out.println("");
-				System.out.println("Welcome to the library " + Username);
-				Valid_name++;
+				System.out.println("Welcome to the library " + userName);
+				validName++;
 			} else {
 				System.out.println("");
 				System.out.println("Please choose one of the available accounts!");
 				System.out.println("---------------------");
 
 			}
-		} while (Valid_name == 0);
+		} while (validName == 0);
 
 		// this variable is used for the exit case,,,
-		int Exit = 0;
+		int exit = 0;
 		// Variables for the user that restart every session
 
-		float Fees_per_session = 0f;
-		int Books_borrowed = 0;
-		int Books_returned = 0;
+		float feesPerSession = 0f;
+		int booksBorrowed = 0;
+		int booksReturned = 0;
+		// this variable (Books_budget) is for keeping the count of the current books
+		// with the user, so he could only return what he has.
+		int booksBudget = 0;
 
-		//this loop is for the menu and its cases
+		// this loop is for the menu and its cases
 		do {
 
 			System.out.println("");
@@ -76,22 +79,23 @@ public class User {
 			System.out.println("5.Exit to Main Menu");
 			System.out.println("---------------------");
 			System.out.print("How Can I help You (please enter a number): ");
-			int User_action = input.nextInt();
-			switch (User_action) {
+			int userAction = input.nextInt();
+			switch (userAction) {
 
 			// First case, borrowing books
 			case 1:
-				if (Books_borrowed < 5) {
+				if (booksBorrowed < 5) {
 					System.out.println("");
 					System.out.println("Borrowing a book has a 0.50$ fee for any book in the library you choose.");
 					System.out.print("Are you sure you want to borrow a book? (answer \"yes\" or \"no\" please): ");
-					String User_answer = input.next();
-					if (User_answer.equalsIgnoreCase("yes") || User_answer.equalsIgnoreCase("y")) {
+					String userAnswer = input.next();
+					if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
 						// updating variables
-						Fees_per_session += 0.50f;
-						Total_revenue += 0.50f;
-						Books_borrowed += 1;
-						Total_books_borrowed += 1;
+						feesPerSession += 0.50f;
+						totalRevenue += 0.50f;
+						booksBorrowed += 1;
+						totalBooksBorrowed += 1;
+						booksBudget += 1;
 
 						System.out.println("");
 						System.out.println("You have borrowed one book for 0.50$ successfully!");
@@ -109,21 +113,21 @@ public class User {
 					System.out.println("---------------------");
 				}
 				break;
-				
 
-			// Second case, returning books	
+			// Second case, returning books
 			case 2:
-				if (Books_borrowed > 0) {
+				if (booksBudget > 0) {
 					System.out.println("");
 					System.out.println("You are going to return one of the books you have borrowed");
 					System.out.println("");
 					System.out.println("We would like to make it clear that fee will not be returned");
 					System.out.print("Are you sure you want to return a book? (answer \"yes\" or \"no\" please): ");
-					String User_answer = input.next();
-					if (User_answer.equalsIgnoreCase("yes") || User_answer.equalsIgnoreCase("y")) {
+					String userAnswer = input.next();
+					if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
 						// updating variables
-						Total_books_returned += 1;
-						Books_returned += 1;
+						totalBooksReturned += 1;
+						booksReturned += 1;
+						booksBudget -= 1;
 
 						System.out.println("");
 						System.out.println("You have returned one book successfully!");
@@ -136,7 +140,7 @@ public class User {
 
 				} else {
 					System.out.println("");
-					System.out.println("Oops, it seems that you have not borrowed any books yet!");
+					System.out.println("Oops, it seems that you dont have any books to return yet!");
 					System.out.println(
 							"Therefore you will be returned to the main user menu, so you can borrow some books :)");
 					System.out.println("---------------------");
@@ -147,7 +151,7 @@ public class User {
 			// Third case, display borrowed books
 			case 3:
 				System.out.println("");
-				System.out.println("The number of books borrowed in this seesion: " + Books_borrowed);
+				System.out.println("The number of books borrowed in this seesion: " + booksBorrowed);
 				System.out.println("---------------------");
 
 				break;
@@ -157,9 +161,9 @@ public class User {
 				System.out.println("");
 				System.out.println("Session Summary:");
 				System.out.println("----------------");
-				System.out.println("Books Borrowed: " + Books_borrowed);
-				System.out.println("Books Returned: " + Books_returned);
-				System.out.printf("Total Fees: %.2f", Fees_per_session);
+				System.out.println("Books Borrowed: " + booksBorrowed);
+				System.out.println("Books Returned: " + booksReturned);
+				System.out.printf("Total Fees: %.2f", feesPerSession);
 				System.out.println("");
 				System.out.println("----------------");
 				break;
@@ -172,12 +176,12 @@ public class User {
 				System.out.println(
 						"We would like to make it clear that the actions you did during this session will be deleted!");
 				System.out.print("Are you sure you want to Exit the session? (answer \"yes\" or \"no\" please): ");
-				String User_answer = input.next();
-				if (User_answer.equalsIgnoreCase("yes") || User_answer.equalsIgnoreCase("y")) {
+				String userAnswer = input.next();
+				if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
 					System.out.println("");
 					System.out.println("You have exited the session successfully!");
 					System.out.println("---------------------");
-					Exit++;
+					exit++;
 				} else {
 					System.out.println("");
 					System.out.println("Then you will be returned to the main user menu.");
@@ -191,7 +195,7 @@ public class User {
 
 			}
 
-		} while (Exit == 0);
+		} while (exit == 0);
 
 	}
 
