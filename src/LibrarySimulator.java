@@ -1,6 +1,6 @@
 // Khaled Abdulaziz ALquwaizany ID 446106134
 // Yasser Abdullah Albusairy	ID 446104619
-// Hamed Ahmed Aldkhyyal		ID 446103564
+// Hamad Ahmed Aldokhail		ID 446103564
 
 import java.util.Scanner;
 
@@ -218,7 +218,7 @@ public class LibrarySimulator {
 					System.out.print("Enter passowrd: ");
 					password = input.next();
 
-					if (username.equalsIgnoreCase("admin") && password.equals("admin")) 
+					if (username.equalsIgnoreCase("admin") && password.equals("admin")) {
 						do {
 							System.out.println("\n--- Administrator Menu ---\n");
 							System.out.println("1. View Total Revenue");
@@ -274,5 +274,3 @@ public class LibrarySimulator {
 	}// main end
 
 }
-
-
