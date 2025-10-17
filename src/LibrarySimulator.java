@@ -15,16 +15,20 @@ public class LibrarySimulator {
 		int totalBooksReturned = 0;
 		float totalRevenue = 0f;
 		
-		System.out.println("Welcome to the library\n");
+		System.out.println("---Welcome to the Library---\n");
 
 		do {
-			System.out.println("1.Users");
-			System.out.println("2.Administrator");
-			System.out.println("3.Exit\n");
+			System.out.println("THE MAIN MENU:");
+			System.out.println("---------------------");
+			System.out.println("1.Log in As Users");
+			System.out.println("2.Log in As Administrator");
+			System.out.println("3.Exit");
+			System.out.println("---------------------");
 			
 			System.out.print("Enter a number please: ");
-
 			choose = input.nextInt();
+			System.out.println("---------------------\n");
+
 			switch (choose) {
 
 			case 1: {
@@ -52,18 +56,18 @@ public class LibrarySimulator {
 					System.out.println(firstName + "\t ID#" + firstId);
 					System.out.println(secondName + "\t ID#" + secondId);
 					System.out.println(thirdName + "\t ID#" + thirdId);
-					System.out.println("");
+					System.out.println("----------------");
 					System.out.print("Choose one of the available accounts, please enter the username only: ");
 					String userName = input.next();
 					if (userName.equalsIgnoreCase(firstName) || userName.equalsIgnoreCase(secondName)
 							|| userName.equalsIgnoreCase(thirdName)) {
-						System.out.println("");
-						System.out.println("Welcome to the library " + userName);
+						System.out.println("------------------------\n");
+						System.out.println("Welcome to the Library " + userName);
 						validName++;
 					} else {
 						System.out.println("");
 						System.out.println("Please choose one of the available accounts!");
-						System.out.println("---------------------");
+						System.out.println("---------------------\n");
 
 					}
 				} while (validName == 0);
@@ -83,7 +87,7 @@ public class LibrarySimulator {
 				do {
 
 					System.out.println("");
-					System.out.println("THE MENU:");
+					System.out.println("THE USER MENU:");
 					System.out.println("---------------------");
 					System.out.println("1.Borrow Book");
 					System.out.println("2.Return Book");
@@ -91,7 +95,7 @@ public class LibrarySimulator {
 					System.out.println("4.View Session Summary");
 					System.out.println("5.Exit to Main Menu");
 					System.out.println("---------------------");
-					System.out.print("How Can I help You (please enter a number): ");
+					System.out.print("How Can I help You (Enter a number please): ");
 					int userAction = input.nextInt();
 					switch (userAction) {
 
@@ -193,7 +197,7 @@ public class LibrarySimulator {
 						if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
 							System.out.println("");
 							System.out.println("You have exited the session successfully!");
-							System.out.println("---------------------");
+							System.out.println("---------------------\n");
 							exit++;
 						} else {
 							System.out.println("");
@@ -215,9 +219,9 @@ public class LibrarySimulator {
 			case 2: {
 				String username, password;
 				do {
-					System.out.println("--- To access to Administrator Menu ---\n");
 					System.out.println("Hint: write admin for both to Enter");
 					System.out.println("Or write exit to Return to Main Menu.\n");
+					System.out.println("---To access to Administrator Menu---\n");
 					System.out.print("Enter admin username: ");
 					username = input.next();
 
@@ -226,32 +230,37 @@ public class LibrarySimulator {
 
 					if (username.equalsIgnoreCase("admin") && password.equals("admin")) {
 						do {
-							System.out.println("\n--- Administrator Menu ---\n");
+							System.out.println("\nTHE Administrator MENU:");
+							System.out.println("---------------------");
 							System.out.println("1. View Total Revenue");
 							System.out.println("2. Most Frequent Operation");
 							System.out.println("3. Exit to Main Menu");
-							System.out.println("\nNote: You must Enter a Number!");
-							System.out.print("Enter your Choice: ");
+							System.out.println("---------------------");
+							System.out.print("Enter a number please: ");
 							choice = input.nextInt();
 
 							switch (choice) {
 							case 1:
-								System.out.printf("Total Revenue: %.2f credit\n", totalRevenue);
+								System.out.printf("\nTotal Revenue: %.2f credit\n", totalRevenue);
+								System.out.println("---------------------");
 								break;
 							case 2:
 
 								if (totalBooksBorrowed > totalBooksReturned) {
-									System.out.println("The Most Frequent Operation is Borrow: " + totalBooksBorrowed);
+									System.out.println("\nThe Most Frequent Operation is Borrow: " + totalBooksBorrowed);
+									System.out.println("---------------------");
 								} else if (totalBooksReturned > totalBooksBorrowed) {
-									System.out.println("The Most Frequent Operation is Renturn: " + totalBooksReturned);
-								} else
-									System.out.println("Borrow And Return is equal: " + totalBooksBorrowed);
+									System.out.println("\nThe Most Frequent Operation is Renturn: " + totalBooksReturned);
+									System.out.println("---------------------");
+								} else {
+									System.out.println("\nBorrow And Return is equal: " + totalBooksBorrowed);
+									System.out.println("---------------------");}
 								break;
 							case 3:
-								System.out.println("Returning to Main Menu");
+								System.out.println("Returning to Main Menu\n");
 								break;
 							default:
-								System.out.println("Invalid Choice. Please Try again");
+								System.out.println("Invalid Number. Please Try again");
 							}
 
 						} while (choice != 3);
@@ -261,7 +270,8 @@ public class LibrarySimulator {
 						System.out.println("Returning to Main Menu\n");
 					} else {
 						System.out.println("\nusername or passowrd is incorrect");
-						System.out.println("Please try again\n");
+						System.out.println("Please try again");
+						System.out.println("---------------------\n"); 
 					}
 				}
 
@@ -271,6 +281,8 @@ public class LibrarySimulator {
 				break;
 			} // Administrator case end
 			case 3: break;
+			default:
+				System.out.println("Invalid Number. Please Try again\n");
 			} // switch end
 		} // do end
 		while (choose != 3);
