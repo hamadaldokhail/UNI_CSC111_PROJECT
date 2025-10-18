@@ -20,8 +20,8 @@ public class LibrarySimulator {
 		do {
 			System.out.println("THE MAIN MENU:");
 			System.out.println("---------------------");
-			System.out.println("1.Log in As Users");
-			System.out.println("2.Log in As Administrator");
+			System.out.println("1.Login As Users");
+			System.out.println("2.Login As Administrator");
 			System.out.println("3.Exit");
 			System.out.println("---------------------");
 			
@@ -72,8 +72,8 @@ public class LibrarySimulator {
 					}
 				} while (validName == 0);
 
-				// this variable is used for the exit case,,,
-				int exit = 0;
+				// this variable is used for the user menu,,,
+				int userAction;
 				// Variables for the user that restart every session
 
 				float feesPerSession = 0f;
@@ -96,7 +96,7 @@ public class LibrarySimulator {
 					System.out.println("5.Exit to Main Menu");
 					System.out.println("---------------------");
 					System.out.print("How Can I help You (Enter a number please): ");
-					int userAction = input.nextInt();
+					userAction = input.nextInt();
 					switch (userAction) {
 
 					// First case, borrowing books
@@ -198,7 +198,6 @@ public class LibrarySimulator {
 							System.out.println("");
 							System.out.println("You have exited the session successfully!");
 							System.out.println("---------------------\n");
-							exit++;
 						} else {
 							System.out.println("");
 							System.out.println("Then you will be returned to the main user menu.");
@@ -212,15 +211,15 @@ public class LibrarySimulator {
 
 					}
 
-				} while (exit == 0);
+				} while (userAction != 5);
 
 				break;
 			} // users case end
 			case 2: {
 				String username, password;
 				do {
-					System.out.println("Hint: write admin for both to Enter");
-					System.out.println("Or write exit to Return to Main Menu.\n");
+					System.out.println("Hint: type \"admin\" for both (username, and password) to Enter");
+					System.out.println("Or type exit to Return to Main Menu.\n");
 					System.out.println("---To access to Administrator Menu---\n");
 					System.out.print("Enter admin username: ");
 					username = input.next();
@@ -253,7 +252,7 @@ public class LibrarySimulator {
 									System.out.println("\nThe Most Frequent Operation is Renturn: " + totalBooksReturned);
 									System.out.println("---------------------");
 								} else {
-									System.out.println("\nBorrow And Return is equal: " + totalBooksBorrowed);
+									System.out.println("\nBorrow And Return are equal: " + totalBooksBorrowed);
 									System.out.println("---------------------");}
 								break;
 							case 3:
@@ -292,3 +291,4 @@ public class LibrarySimulator {
 	}// main end
 
 }
+
