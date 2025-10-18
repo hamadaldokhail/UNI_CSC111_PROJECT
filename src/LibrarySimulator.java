@@ -20,7 +20,7 @@ public class LibrarySimulator {
 		do {
 			System.out.println("THE MAIN MENU:");
 			System.out.println("---------------------");
-			System.out.println("1.Login As Users");
+			System.out.println("1.Login As User");
 			System.out.println("2.Login As Administrator");
 			System.out.println("3.Exit");
 			System.out.println("---------------------");
@@ -291,4 +291,5 @@ public class LibrarySimulator {
 	}// main end
 
 }
+
 
