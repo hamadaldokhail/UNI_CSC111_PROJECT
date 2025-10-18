@@ -240,7 +240,7 @@ public class LibrarySimulator {
 
 							switch (choice) {
 							case 1:
-								System.out.printf("\nTotal Revenue: %.2f credit\n", totalRevenue);
+								System.out.printf("\nTotal Revenue: %.2f $\n", totalRevenue);
 								System.out.println("---------------------");
 								break;
 							case 2:
@@ -291,5 +291,6 @@ public class LibrarySimulator {
 	}// main end
 
 }
+
 
 
