@@ -168,7 +168,7 @@ public class LibrarySimulator {
 					// Third case, display borrowed books
 					case 3:
 						System.out.println("");
-						System.out.println("The number of books borrowed in this seesion: " + booksBorrowed);
+						System.out.println("The number of books borrowed in this session: " + booksBorrowed);
 						System.out.println("---------------------");
 
 						break;
@@ -291,6 +291,7 @@ public class LibrarySimulator {
 	}// main end
 
 }
+
 
 
 
