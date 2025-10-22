@@ -104,7 +104,7 @@ public class LibrarySimulator {
 
 					// First case, borrowing books
 					case "1":
-						if (booksBorrowed < 5) {
+						if (booksBudget < 5) {
 							System.out.println("");
 							System.out.println("Borrowing a book has a 0.50$ fee for any book in the library you choose.");
 							System.out.print("Are you sure you want to borrow a book? (answer \"yes\" or \"no\" please): ");
@@ -171,7 +171,7 @@ public class LibrarySimulator {
 					// Third case, display borrowed books
 					case "3":
 						System.out.println("");
-						System.out.println("The number of books borrowed in this session: " + booksBorrowed);
+						System.out.println("The number of borrowed books that you have: " + booksBudget);
 						System.out.println("---------------------");
 
 						break;
