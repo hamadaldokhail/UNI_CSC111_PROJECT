@@ -1,6 +1,6 @@
 // Khaled Abdulaziz ALquwaizany ID 446106134
 // Yasser Abdullah Albusairy	ID 446104619
-// Hamad Ahmed Aldokhail		ID 446103564
+// Hamed Ahmed Aldkhyyal		ID 446103564
 
 import java.util.Scanner;
 
@@ -227,7 +227,7 @@ public class LibrarySimulator {
 					System.out.print("Enter admin username: ");
 					username = input.next();
 
-					System.out.print("Enter passowrd: ");
+					System.out.print("Enter password: ");
 					password = input.next();
 
 					if (username.equalsIgnoreCase("admin") && password.equals("admin")) {
