@@ -128,7 +128,7 @@ public class LibrarySimulator {
 						} else {
 							System.out.println("");
 							System.out.println("Oops, it seems that you have borrowed 5 books, which is the limit.");
-							System.out.println("Unfortunatly, you cant borrow more than 5,,,");
+							System.out.println("Unfortunatly, you cant borrow more than 5,");
 							System.out.println("Therefore you will be returned to the main user menu.");
 							System.out.println("---------------------");
 						}
@@ -222,8 +222,7 @@ public class LibrarySimulator {
 			case "2": {
 				String username, password;
 				do {
-					System.out.println("Hint: type \"admin\" for both (username, and password) to Enter");
-					System.out.println("Or type exit to Return to Main Menu.\n");
+					System.out.println("Hint: type exit to Return to Main Menu.\n");
 					System.out.println("---To access to Administrator Menu---\n");
 					System.out.print("Enter admin username: ");
 					username = input.next();
@@ -278,8 +277,7 @@ public class LibrarySimulator {
 					}
 				}
 
-				while (!username.equalsIgnoreCase("exit")
-						&& (!username.equalsIgnoreCase("admin") || !password.equals("admin")));
+				while ((!username.equalsIgnoreCase("exit") && !password.equalsIgnoreCase("exit")));
 
 				break;
 			} // Administrator case end
@@ -289,7 +287,7 @@ public class LibrarySimulator {
 			} // switch end
 		} // do end
 		while (!choose.equals("3"));
-		System.out.println("Thank you for using our Library simulator.");
+		System.out.println("Thank you for using our Library Simulator.");
 		System.out.println("Goodbye.");
 		input.close();
 	}// main end
