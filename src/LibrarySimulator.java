@@ -1,4 +1,5 @@
-// Khaled Abdulaziz ALquwaizany ID 446106134
+//https://github.com/hamadaldokhail/UNI_CSC111_PROJECT_PHASE1
+// Khaled Abdulaziz Alquwaizany ID 446106134
 // Yasser Abdullah Albusairy	ID 446104619
 // Hamed Ahmed Aldkhyyal		ID 446103564
 
@@ -14,7 +15,7 @@ public class LibrarySimulator {
 		int totalBooksBorrowed = 0;
 		int totalBooksReturned = 0;
 		float totalRevenue = 0f;
-		
+
 		System.out.println("---Welcome to the Library---\n");
 
 		do {
@@ -24,7 +25,7 @@ public class LibrarySimulator {
 			System.out.println("2.Login As Administrator");
 			System.out.println("3.Exit");
 			System.out.println("---------------------");
-			
+
 			System.out.print("Enter a number please: ");
 			choose = input.next();
 			System.out.println("---------------------\n");
@@ -32,16 +33,9 @@ public class LibrarySimulator {
 			switch (choose) {
 
 			case "1": {
-				int firstId = 1000;
-				String firstName = "Hamad";
-
-				int secondId = 1001;
-				String secondName = "Yassir";
-
-				int thirdId = 1002;
-				String thirdName = "Khaled";
-
-
+				Member m1 = new Member(1000, "Hamad", 0);
+				Member m2 = new Member(1001, "Yassir", 0);
+				Member m3 = new Member(1002, "Khaled", 0);
 
 				// this variable is used to stop the do while loop if the entered name is valid
 				int validName = 0;
@@ -53,14 +47,14 @@ public class LibrarySimulator {
 					System.out.println("");
 					System.out.println("Username ID");
 					System.out.println("----------------");
-					System.out.println(firstName + "\t ID#" + firstId);
-					System.out.println(secondName + "\t ID#" + secondId);
-					System.out.println(thirdName + "\t ID#" + thirdId);
+					System.out.println(m1.getName() + "\t ID#" + m1.getId());
+					System.out.println(m2.getName() + "\t ID#" + m2.getId());
+					System.out.println(m3.getName() + "\t ID#" + m3.getId());
 					System.out.println("----------------");
 					System.out.print("Choose one of the available accounts, please enter the username only: ");
 					String userName = input.next();
-					if (userName.equalsIgnoreCase(firstName) || userName.equalsIgnoreCase(secondName)
-							|| userName.equalsIgnoreCase(thirdName)) {
+					if (userName.equalsIgnoreCase(m1.getName()) || userName.equalsIgnoreCase(m2.getName())
+							|| userName.equalsIgnoreCase(m3.getName())) {
 						System.out.println("------------------------\n");
 						System.out.println("Welcome to the Library " + userName);
 						validName++;
@@ -75,7 +69,7 @@ public class LibrarySimulator {
 				// this variable is used for the user menu,,,
 				String userAction;
 				String userAnswer;
-				//this variable is used for exiting the user loop
+				// this variable is used for exiting the user loop
 				int exit = 0;
 				// Variables for the user that restart every session
 
@@ -106,8 +100,10 @@ public class LibrarySimulator {
 					case "1":
 						if (booksBudget < 5) {
 							System.out.println("");
-							System.out.println("Borrowing a book has a 0.50$ fee for any book in the library you choose.");
-							System.out.print("Are you sure you want to borrow a book? (answer \"yes\" or \"no\" please): ");
+							System.out.println(
+									"Borrowing a book has a 0.50$ fee for any book in the library you choose.");
+							System.out.print(
+									"Are you sure you want to borrow a book? (answer \"yes\" or \"no\" please): ");
 							userAnswer = input.next();
 							if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
 								// updating variables
@@ -141,7 +137,8 @@ public class LibrarySimulator {
 							System.out.println("You are going to return one of the books you have borrowed");
 							System.out.println("");
 							System.out.println("We would like to make it clear that fee will not be returned");
-							System.out.print("Are you sure you want to return a book? (answer \"yes\" or \"no\" please): ");
+							System.out.print(
+									"Are you sure you want to return a book? (answer \"yes\" or \"no\" please): ");
 							userAnswer = input.next();
 							if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
 								// updating variables
@@ -195,7 +192,8 @@ public class LibrarySimulator {
 						System.out.println("");
 						System.out.println(
 								"We would like to make it clear that the actions you did during this session will be deleted!");
-						System.out.print("Are you sure you want to Exit the session? (answer \"yes\" or \"no\" please): ");
+						System.out.print(
+								"Are you sure you want to Exit the session? (answer \"yes\" or \"no\" please): ");
 						userAnswer = input.next();
 						if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
 							System.out.println("");
@@ -249,14 +247,17 @@ public class LibrarySimulator {
 							case "2":
 
 								if (totalBooksBorrowed > totalBooksReturned) {
-									System.out.println("\nThe Most Frequent Operation is Borrow: " + totalBooksBorrowed);
+									System.out
+											.println("\nThe Most Frequent Operation is Borrow: " + totalBooksBorrowed);
 									System.out.println("---------------------");
 								} else if (totalBooksReturned > totalBooksBorrowed) {
-									System.out.println("\nThe Most Frequent Operation is Renturn: " + totalBooksReturned);
+									System.out
+											.println("\nThe Most Frequent Operation is Renturn: " + totalBooksReturned);
 									System.out.println("---------------------");
 								} else {
 									System.out.println("\nBorrow And Return are equal: " + totalBooksBorrowed);
-									System.out.println("---------------------");}
+									System.out.println("---------------------");
+								}
 								break;
 							case "3":
 								System.out.println("Returning to Main Menu\n");
@@ -271,9 +272,9 @@ public class LibrarySimulator {
 					else if (username.equalsIgnoreCase("exit") || password.equals("exit")) {
 						System.out.println("Returning to Main Menu\n");
 					} else {
-						System.out.println("\nusername or passowrd is incorrect");
+						System.out.println("\nusername or password is incorrect");
 						System.out.println("Please try again");
-						System.out.println("---------------------\n"); 
+						System.out.println("---------------------\n");
 					}
 				}
 
@@ -281,7 +282,8 @@ public class LibrarySimulator {
 
 				break;
 			} // Administrator case end
-			case "3": break;
+			case "3":
+				break;
 			default:
 				System.out.println("Invalid option. Please Try again\n");
 			} // switch end
