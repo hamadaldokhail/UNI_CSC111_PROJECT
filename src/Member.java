@@ -1,3 +1,7 @@
+//https://github.com/hamadaldokhail/UNI_CSC111_PROJECT_PHASE1
+// Khaled Abdulaziz Alquwaizany ID 446106134
+// Yasser Abdullah Albusairy	ID 446104619
+// Hamed Ahmed Aldkhyyal		ID 446103564
 
 public class Member {
 
@@ -21,15 +25,21 @@ public class Member {
 	}// end parameters
 
 	private boolean canBorrow() {
-		return true;
+		if (borrowedCount < 5)
+			return true;
+		else
+			return false;
 	}// end canBorrow
 
 	private boolean canReturn() {
-		return true;
+		if (borrowedCount > 0)
+			return true;
+		else
+			return false;
 	}// end canBorrow
 
 	public void viewBorrowedCount() {
-
+		System.out.println(borrowedCount);
 	}// end viewBorrowedCount
 
 	public boolean borrowOne() {
@@ -39,13 +49,30 @@ public class Member {
 	public boolean returnOne() {
 		return true;
 	}// end returnOne
-	
+
 	public void displayStatistics() {
-		
+		System.out.println(this.getName() + "\t ID#" + this.getId());
+		System.out.println("Number of book currently borrowed: " + this.borrowedCount);
+		System.out.println("How many times did the user borrow a book: " + numBorrows);
+		System.out.println("How many times did the user return a book: " + numReturns);
+		System.out.println("The total fees incured: " + sessionFees);
+
 	}// end displayStatistics
-	
+
 	public void reset() {
-		
+		borrowedCount = 0;
+		numBorrows = 0;
+		numReturns = 0;
+		sessionFees = 0;
+
 	}// end reset
+
+	public int getId() {
+		return id;
+	}// end getId
+
+	public String getName() {
+		return name;
+	}// end getName
 
 }// end class
