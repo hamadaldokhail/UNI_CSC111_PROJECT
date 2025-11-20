@@ -84,6 +84,7 @@ public class Member {
 		System.out.println("");
 		System.out.println("The number of borrowed books that you have: " + borrowedCount);
 		System.out.println("---------------------");
+		numViewBorrowed += 1;
 	}// end viewBorrowedCount
 
 
