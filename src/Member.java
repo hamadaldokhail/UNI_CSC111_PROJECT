@@ -38,28 +38,71 @@ public class Member {
 			return false;
 	}// end canBorrow
 
-	public void viewBorrowedCount() {
-		System.out.println(borrowedCount);
-	}// end viewBorrowedCount
-
 	public boolean borrowOne() {
-		return true;
+		if (canBorrow() == true) {
+			System.out.println("");
+			System.out.println("You have borrowed one book for 0.50$ successfully!");
+			System.out.println("---------------------");
+			sessionFees += 0.50f;
+			TotalRevenue += 0.50f;
+			numBorrows += 1;
+			TotalBorrows += 1;
+			borrowedCount += 1;
+			return true;
+		} else
+		{
+			System.out.println("");
+			System.out.println("Oops, it seems that you have borrowed 5 books, which is the limit.");
+			System.out.println("Unfortunatly, you cant borrow more than 5,");
+			System.out.println("Therefore you will be returned to the main user menu.");
+			System.out.println("---------------------");
+			return false;
+		}
+
 	}// end borrowOne
 
 	public boolean returnOne() {
-		return true;
+		if (canReturn() == true) {
+			System.out.println("");
+			System.out.println("You have returned one book successfully!");
+			System.out.println("---------------------");
+			TotalReturns += 1;
+			numReturns += 1;
+			borrowedCount -= 1;
+			return true;
+			}
+		else {
+			System.out.println("");
+			System.out.println("Oops, it seems that you dont have any books to return yet!");
+			System.out.println("Therefore you will be returned to the main user menu, so you can borrow some books :)");
+			System.out.println("---------------------");
+			return false;
+		}
 	}// end returnOne
+	
+	public void viewBorrowedCount() {
+		System.out.println("");
+		System.out.println("The number of borrowed books that you have: " + borrowedCount);
+		System.out.println("---------------------");
+	}// end viewBorrowedCount
+
 
 	public void displayStatistics() {
+		System.out.println("");
+		System.out.println("Session Summary:");
+		System.out.println("----------------");
 		System.out.println(this.getName() + "\t ID#" + this.getId());
-		System.out.println("Number of book currently borrowed: " + this.borrowedCount);
-		System.out.println("How many times did the user borrow a book: " + numBorrows);
-		System.out.println("How many times did the user return a book: " + numReturns);
-		System.out.println("The total fees incured: " + sessionFees);
+		System.out.println("");
+		System.out.println("Books Borrowed: " + numBorrows);
+		System.out.println("Books Returned: " + numReturns);
+		System.out.printf("Total Fees: %.2f $", sessionFees);
+		System.out.println("");
+		System.out.println("----------------");
 
 	}// end displayStatistics
 
 	public void reset() {
+		
 		borrowedCount = 0;
 		numBorrows = 0;
 		numReturns = 0;
