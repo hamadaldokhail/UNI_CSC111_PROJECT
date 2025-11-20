@@ -164,21 +164,21 @@ public class LibrarySimulator {
 
 							switch (choice) {
 							case "1":
-								System.out.printf("\nTotal Revenue: %.2f $\n", totalRevenue);
+								System.out.printf("\nTotal Revenue: %.2f $\n", Member.TotalRevenue);
 								System.out.println("---------------------");
 								break;
 							case "2":
 
-								if (totalBooksBorrowed > totalBooksReturned) {
+								if (Member.TotalBorrows > Member.TotalReturns) {
 									System.out
-											.println("\nThe Most Frequent Operation is Borrow: " + totalBooksBorrowed);
+											.println("\nThe Most Frequent Operation is Borrow: " + Member.TotalBorrows);
 									System.out.println("---------------------");
-								} else if (totalBooksReturned > totalBooksBorrowed) {
+								} else if (Member.TotalReturns > Member.TotalBorrows) {
 									System.out
-											.println("\nThe Most Frequent Operation is Renturn: " + totalBooksReturned);
+											.println("\nThe Most Frequent Operation is Renturn: " + Member.TotalReturns);
 									System.out.println("---------------------");
 								} else {
-									System.out.println("\nBorrow And Return are equal: " + totalBooksBorrowed);
+									System.out.println("\nBorrow And Return are equal: " + Member.TotalBorrows);
 									System.out.println("---------------------");
 								}
 								break;
