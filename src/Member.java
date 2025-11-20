@@ -12,11 +12,10 @@ public class Member {
 	private int numBorrows;
 	private int numReturns;
 	private double sessionFees;
-
-	public double TotalRevenue;
-	public int TotalViewBorrowed;
-	public int TotalBorrows;
-	public int TotalReturns;
+	public static double TotalRevenue;
+	public static int TotalViewBorrowed;
+	public static int TotalBorrows;
+	public static int TotalReturns;
 
 	public Member(int id, String name, int borrowedCount) {
 		this.id = id;
@@ -37,6 +36,13 @@ public class Member {
 		else
 			return false;
 	}// end canBorrow
+	
+	public void viewBorrowedCount() {
+		System.out.println("");
+		System.out.println("The number of borrowed books that you have: " + borrowedCount);
+		System.out.println("---------------------");
+		numViewBorrowed += 1;
+	}// end viewBorrowedCount
 
 	public boolean borrowOne() {
 		if (canBorrow() == true) {
@@ -79,20 +85,11 @@ public class Member {
 			return false;
 		}
 	}// end returnOne
-	
-	public void viewBorrowedCount() {
-		System.out.println("");
-		System.out.println("The number of borrowed books that you have: " + borrowedCount);
-		System.out.println("---------------------");
-		numViewBorrowed += 1;
-	}// end viewBorrowedCount
-
 
 	public void displayStatistics() {
 		System.out.println("");
 		System.out.println("Session Summary:");
 		System.out.println("----------------");
-		System.out.println(this.getName() + "\t ID#" + this.getId());
 		System.out.println("");
 		System.out.println("Books Borrowed: " + numBorrows);
 		System.out.println("Books Returned: " + numReturns);
