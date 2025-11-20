@@ -12,9 +12,6 @@ public class LibrarySimulator {
 
 		String choice;
 		String choose;
-		int totalBooksBorrowed = 0;
-		int totalBooksReturned = 0;
-		float totalRevenue = 0f;
 
 		System.out.println("---Welcome to the Library---\n");
 
@@ -73,13 +70,6 @@ public class LibrarySimulator {
 				int exit = 0;
 				// Variables for the user that restart every session
 
-				float feesPerSession = 0f;
-				int booksBorrowed = 0;
-				int booksReturned = 0;
-				// this variable (Books_budget) is for keeping the count of the current books
-				// with the user, so he could only return what he has.
-				int booksBudget = 0;
-
 				// this loop is for the menu and its cases
 				do {
 
@@ -98,91 +88,23 @@ public class LibrarySimulator {
 
 					// First case, borrowing books
 					case "1":
-						if (booksBudget < 5) {
-							System.out.println("");
-							System.out.println(
-									"Borrowing a book has a 0.50$ fee for any book in the library you choose.");
-							System.out.print(
-									"Are you sure you want to borrow a book? (answer \"yes\" or \"no\" please): ");
-							userAnswer = input.next();
-							if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
-								// updating variables
-								feesPerSession += 0.50f;
-								totalRevenue += 0.50f;
-								booksBorrowed += 1;
-								totalBooksBorrowed += 1;
-								booksBudget += 1;
-
-								System.out.println("");
-								System.out.println("You have borrowed one book for 0.50$ successfully!");
-								System.out.println("---------------------");
-							} else {
-								System.out.println("");
-								System.out.println("Then you will be returned to the main user menu.");
-								System.out.println("---------------------");
-							}
-						} else {
-							System.out.println("");
-							System.out.println("Oops, it seems that you have borrowed 5 books, which is the limit.");
-							System.out.println("Unfortunatly, you cant borrow more than 5,");
-							System.out.println("Therefore you will be returned to the main user menu.");
-							System.out.println("---------------------");
-						}
+						// challenge here, how to specify which user exactly.
+						m1.borrowOne();
 						break;
 
 					// Second case, returning books
 					case "2":
-						if (booksBudget > 0) {
-							System.out.println("");
-							System.out.println("You are going to return one of the books you have borrowed");
-							System.out.println("");
-							System.out.println("We would like to make it clear that fee will not be returned");
-							System.out.print(
-									"Are you sure you want to return a book? (answer \"yes\" or \"no\" please): ");
-							userAnswer = input.next();
-							if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
-								// updating variables
-								totalBooksReturned += 1;
-								booksReturned += 1;
-								booksBudget -= 1;
-
-								System.out.println("");
-								System.out.println("You have returned one book successfully!");
-								System.out.println("---------------------");
-							} else {
-								System.out.println("");
-								System.out.println("Then you will be returned to the main user menu.");
-								System.out.println("---------------------");
-							}
-
-						} else {
-							System.out.println("");
-							System.out.println("Oops, it seems that you dont have any books to return yet!");
-							System.out.println(
-									"Therefore you will be returned to the main user menu, so you can borrow some books :)");
-							System.out.println("---------------------");
-						}
-
+						m1.returnOne();
 						break;
 
 					// Third case, display borrowed books
 					case "3":
-						System.out.println("");
-						System.out.println("The number of borrowed books that you have: " + booksBudget);
-						System.out.println("---------------------");
-
+						m1.viewBorrowedCount();
 						break;
 
 					// Fourth case, Session summary
 					case "4":
-						System.out.println("");
-						System.out.println("Session Summary:");
-						System.out.println("----------------");
-						System.out.println("Books Borrowed: " + booksBorrowed);
-						System.out.println("Books Returned: " + booksReturned);
-						System.out.printf("Total Fees: %.2f $", feesPerSession);
-						System.out.println("");
-						System.out.println("----------------");
+						m1.displayStatistics();
 						break;
 
 					// Fifth case, Exit to main menu
@@ -199,6 +121,7 @@ public class LibrarySimulator {
 							System.out.println("");
 							System.out.println("You have exited the session successfully!");
 							System.out.println("---------------------\n");
+							m1.reset();
 							exit += 1;
 						} else {
 							System.out.println("");
