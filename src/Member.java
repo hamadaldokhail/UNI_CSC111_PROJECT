@@ -36,7 +36,7 @@ public class Member {
 		else
 			return false;
 	}// end canBorrow
-	
+
 	public void viewBorrowedCount() {
 		System.out.println("");
 		System.out.println("The number of borrowed books that you have: " + borrowedCount);
@@ -55,11 +55,10 @@ public class Member {
 			TotalBorrows += 1;
 			borrowedCount += 1;
 			return true;
-		} else
-		{
+		} else {
 			System.out.println("");
 			System.out.println("Oops, it seems that you have borrowed 5 books, which is the limit.");
-			System.out.println("Unfortunatly, you cant borrow more than 5,");
+			System.out.println("Unfortunatly, you can't borrow more than 5,");
 			System.out.println("Therefore you will be returned to the main user menu.");
 			System.out.println("---------------------");
 			return false;
@@ -76,8 +75,7 @@ public class Member {
 			numReturns += 1;
 			borrowedCount -= 1;
 			return true;
-			}
-		else {
+		} else {
 			System.out.println("");
 			System.out.println("Oops, it seems that you dont have any books to return yet!");
 			System.out.println("Therefore you will be returned to the main user menu, so you can borrow some books :)");
@@ -90,6 +88,7 @@ public class Member {
 		System.out.println("");
 		System.out.println("Session Summary:");
 		System.out.println("----------------");
+		System.out.println(this.getName() + "\t ID#" + this.getId());
 		System.out.println("");
 		System.out.println("Books Borrowed: " + numBorrows);
 		System.out.println("Books Returned: " + numReturns);
@@ -100,7 +99,7 @@ public class Member {
 	}// end displayStatistics
 
 	public void reset() {
-		
+
 		borrowedCount = 0;
 		numBorrows = 0;
 		numReturns = 0;
@@ -115,5 +114,4 @@ public class Member {
 	public String getName() {
 		return name;
 	}// end getName
-
 }// end class
