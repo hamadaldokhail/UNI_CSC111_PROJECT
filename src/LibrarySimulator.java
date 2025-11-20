@@ -30,9 +30,13 @@ public class LibrarySimulator {
 			switch (choose) {
 
 			case "1": {
+				// These are the user variables
 				Member m1 = new Member(1000, "Hamad", 0);
 				Member m2 = new Member(1001, "Yassir", 0);
 				Member m3 = new Member(1002, "Khaled", 0);
+
+				// This is a placeholder for the logged in member
+				Member currentMember = null;
 
 				// this variable is used to stop the do while loop if the entered name is valid
 				int validName = 0;
@@ -50,16 +54,25 @@ public class LibrarySimulator {
 					System.out.println("----------------");
 					System.out.print("Choose one of the available accounts, please enter the username only: ");
 					String userName = input.next();
-					if (userName.equalsIgnoreCase(m1.getName()) || userName.equalsIgnoreCase(m2.getName())
-							|| userName.equalsIgnoreCase(m3.getName())) {
-						System.out.println("------------------------\n");
-						System.out.println("Welcome to the Library " + userName);
+
+					if (userName.equalsIgnoreCase(m1.getName())) {
+						currentMember = m1;
 						validName++;
+					} else if (userName.equalsIgnoreCase(m2.getName())) {
+						currentMember = m2;
+						validName++;
+					} else if (userName.equalsIgnoreCase(m3.getName())) {
+						currentMember = m3;
+						validName++;
+					}
+
+					if (validName > 0) {
+						System.out.println("------------------------\n");
+						System.out.println("Welcome to the Library " + currentMember.getName());
 					} else {
 						System.out.println("");
 						System.out.println("Please choose one of the available accounts!");
 						System.out.println("---------------------\n");
-
 					}
 				} while (validName == 0);
 
@@ -88,23 +101,23 @@ public class LibrarySimulator {
 
 					// First case, borrowing books
 					case "1":
-						// challenge here, how to specify which user exactly.
-						m1.borrowOne();
+					
+						currentMember.borrowOne();
 						break;
 
 					// Second case, returning books
 					case "2":
-						m1.returnOne();
+						currentMember.returnOne();
 						break;
 
 					// Third case, display borrowed books
 					case "3":
-						m1.viewBorrowedCount();
+						currentMember.viewBorrowedCount();
 						break;
 
 					// Fourth case, Session summary
 					case "4":
-						m1.displayStatistics();
+						currentMember.displayStatistics();
 						break;
 
 					// Fifth case, Exit to main menu
@@ -174,8 +187,8 @@ public class LibrarySimulator {
 											.println("\nThe Most Frequent Operation is Borrow: " + Member.TotalBorrows);
 									System.out.println("---------------------");
 								} else if (Member.TotalReturns > Member.TotalBorrows) {
-									System.out
-											.println("\nThe Most Frequent Operation is Renturn: " + Member.TotalReturns);
+									System.out.println(
+											"\nThe Most Frequent Operation is Renturn: " + Member.TotalReturns);
 									System.out.println("---------------------");
 								} else {
 									System.out.println("\nBorrow And Return are equal: " + Member.TotalBorrows);
@@ -216,4 +229,4 @@ public class LibrarySimulator {
 		System.out.println("Goodbye.");
 		input.close();
 	}// main end
-}
+}// class end
