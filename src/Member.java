@@ -1,4 +1,4 @@
-//https://github.com/hamadaldokhail/UNI_CSC111_PROJECT_PHASE1
+// https://github.com/hamadaldokhail/UNI_CSC111_PROJECT
 // Khaled Abdulaziz Alquwaizany ID 446106134
 // Yasser Abdullah Albusairy	ID 446104619
 // Hamed Ahmed Aldkhyyal		ID 446103564
@@ -116,4 +116,5 @@ public class Member {
 		return name;
 	}// end getName
 }// end class
+
 
