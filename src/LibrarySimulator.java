@@ -230,4 +230,3 @@ public class LibrarySimulator {
 		input.close();
 	}// main end
 }// class end
-
