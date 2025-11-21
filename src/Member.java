@@ -65,13 +65,11 @@ public class Member {
 				System.out.println("");
 				System.out.println("You have borrowed one book for 0.50$ successfully!");
 				System.out.println("---------------------");
-				input.close();
 				return true;
 			} else {
 				System.out.println("");
 				System.out.println("Then you will be returned to the main user menu.");
 				System.out.println("---------------------");
-				input.close();
 				return false;
 			}
 		} else {
@@ -102,13 +100,11 @@ public class Member {
 				System.out.println("");
 				System.out.println("You have returned one book successfully!");
 				System.out.println("---------------------");
-				input.close();
 				return true;
 			} else {
 				System.out.println("");
 				System.out.println("Then you will be returned to the main user menu.");
 				System.out.println("---------------------");
-				input.close();
 				return false;
 			}
 
