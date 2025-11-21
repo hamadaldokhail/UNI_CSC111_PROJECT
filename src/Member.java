@@ -1,7 +1,9 @@
+
 // https://github.com/hamadaldokhail/UNI_CSC111_PROJECT
 // Khaled Abdulaziz Alquwaizany ID 446106134
 // Yasser Abdullah Albusairy	ID 446104619
 // Hamed Ahmed Aldkhyyal		ID 446103564
+import java.util.Scanner;
 
 public class Member {
 
@@ -47,35 +49,69 @@ public class Member {
 
 	public boolean borrowOne() {
 		if (canBorrow() == true) {
+			Scanner input = new Scanner(System.in);
+			String userAnswer;
 			System.out.println("");
-			System.out.println("You have borrowed one book for 0.50$ successfully!");
-			System.out.println("---------------------");
-			sessionFees += 0.50f;
-			TotalRevenue += 0.50f;
-			numBorrows += 1;
-			TotalBorrows += 1;
-			borrowedCount += 1;
-			return true;
+			System.out.println("Borrowing a book has a 0.50$ fee for any book in the library you choose.");
+			System.out.print("Are you sure you want to borrow a book? (answer \"yes\" or \"no\" please): ");
+			userAnswer = input.next();
+			if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
+				// updating variables
+				sessionFees += 0.50f;
+				TotalRevenue += 0.50f;
+				numBorrows += 1;
+				TotalBorrows += 1;
+				borrowedCount += 1;
+				System.out.println("");
+				System.out.println("You have borrowed one book for 0.50$ successfully!");
+				System.out.println("---------------------");
+				input.close();
+				return true;
+			} else {
+				System.out.println("");
+				System.out.println("Then you will be returned to the main user menu.");
+				System.out.println("---------------------");
+				input.close();
+				return false;
+			}
 		} else {
 			System.out.println("");
 			System.out.println("Oops, it seems that you have borrowed 5 books, which is the limit.");
-			System.out.println("Unfortunatly, you can't borrow more than 5,");
+			System.out.println("Unfortunatly, you cant borrow more than 5,");
 			System.out.println("Therefore you will be returned to the main user menu.");
 			System.out.println("---------------------");
 			return false;
 		}
-
 	}// end borrowOne
 
 	public boolean returnOne() {
 		if (canReturn() == true) {
+			Scanner input = new Scanner(System.in);
+			String userAnswer;
 			System.out.println("");
-			System.out.println("You have returned one book successfully!");
-			System.out.println("---------------------");
-			TotalReturns += 1;
-			numReturns += 1;
-			borrowedCount -= 1;
-			return true;
+			System.out.println("You are going to return one of the books you have borrowed");
+			System.out.println("");
+			System.out.println("We would like to make it clear that fee will not be returned");
+			System.out.print("Are you sure you want to return a book? (answer \"yes\" or \"no\" please): ");
+			userAnswer = input.next();
+			if (userAnswer.equalsIgnoreCase("yes") || userAnswer.equalsIgnoreCase("y")) {
+				// updating variables
+				TotalReturns += 1;
+				numReturns += 1;
+				borrowedCount -= 1;
+				System.out.println("");
+				System.out.println("You have returned one book successfully!");
+				System.out.println("---------------------");
+				input.close();
+				return true;
+			} else {
+				System.out.println("");
+				System.out.println("Then you will be returned to the main user menu.");
+				System.out.println("---------------------");
+				input.close();
+				return false;
+			}
+
 		} else {
 			System.out.println("");
 			System.out.println("Oops, it seems that you dont have any books to return yet!");
@@ -116,5 +152,3 @@ public class Member {
 		return name;
 	}// end getName
 }// end class
-
-
