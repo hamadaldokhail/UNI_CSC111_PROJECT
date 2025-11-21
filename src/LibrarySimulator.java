@@ -134,7 +134,7 @@ public class LibrarySimulator {
 							System.out.println("");
 							System.out.println("You have exited the session successfully!");
 							System.out.println("---------------------\n");
-							m1.reset();
+							currentMember.reset();
 							exit += 1;
 						} else {
 							System.out.println("");
