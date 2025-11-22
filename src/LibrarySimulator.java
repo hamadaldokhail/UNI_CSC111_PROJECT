@@ -170,7 +170,8 @@ public class LibrarySimulator {
 							System.out.println("---------------------");
 							System.out.println("1. View Total Revenue");
 							System.out.println("2. Most Frequent Operation");
-							System.out.println("3. Exit to Main Menu");
+							System.out.println("3. View Total View Borrowed");
+							System.out.println("4. Exit to Main Menu");
 							System.out.println("---------------------");
 							System.out.print("Enter a number please: ");
 							choice = input.next();
@@ -196,13 +197,16 @@ public class LibrarySimulator {
 								}
 								break;
 							case "3":
-								System.out.println("Returning to Main Menu\n");
+								System.out.println("\nThe Total View Borrowed is: " + Member.TotalViewBorrowed);
+								break;
+							case "4":
+								System.out.println("\nReturning to Main Menu\n");
 								break;
 							default:
 								System.out.println("Invalid option. Please Try again");
 							}
 
-						} while (!choice.equals("3"));
+						} while (!choice.equals("4"));
 					}
 
 					else if (username.equalsIgnoreCase("exit") || password.equals("exit")) {
@@ -212,9 +216,8 @@ public class LibrarySimulator {
 						System.out.println("Please try again");
 						System.out.println("---------------------\n");
 					}
-				}
-
-				while ((!username.equalsIgnoreCase("exit") && !password.equalsIgnoreCase("exit")));
+				}	while ((!username.equalsIgnoreCase("exit") && !password.equalsIgnoreCase("exit"))
+						&& (!username.equalsIgnoreCase("admin") || !password.equals("admin")));
 
 				break;
 			} // Administrator case end
