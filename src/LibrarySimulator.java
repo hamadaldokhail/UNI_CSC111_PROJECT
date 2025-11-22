@@ -211,13 +211,13 @@ public class LibrarySimulator {
 
 					else if (username.equalsIgnoreCase("exit") || password.equals("exit")) {
 						System.out.println("Returning to Main Menu\n");
+						break;
 					} else {
 						System.out.println("\nusername or password is incorrect");
 						System.out.println("Please try again");
 						System.out.println("---------------------\n");
 					}
-				}	while ((!username.equalsIgnoreCase("exit") && !password.equalsIgnoreCase("exit"))
-						&& (!username.equalsIgnoreCase("admin") || !password.equals("admin")));
+				}	while ( !username.equalsIgnoreCase("admin") || !password.equals("admin") );
 
 				break;
 			} // Administrator case end
